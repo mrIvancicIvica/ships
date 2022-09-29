@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Header = () => {
   const [auth, setAuth] = React.useState(true);
@@ -43,7 +44,7 @@ const Header = () => {
                 onClick={handleMenu}
                 color='inherit'
               >
-                <MyLocationIcon />
+                <MenuIcon />
               </IconButton>
               <Menu
                 id='menu-appbar'

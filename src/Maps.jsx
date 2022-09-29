@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import location from './assets/location.svg';
-// import LocationOnIcon from '@mui/icons-material/LocationOn';
 import 'leaflet/dist/leaflet.css';
 import { Box } from '@mui/system';
 import Searchbox from './Searchbox';
@@ -29,15 +28,6 @@ const Maps = () => {
     iconSize: [40, 40],
   });
 
-  //   const iconMarkup = renderToStaticMarkup(
-  //     <LocationOnIcon/>
-  //   )
-
-  //   const customMarkerIcon = L.divIcon({
-  //     html: iconMarkup,
-  //     iconSize: [35,35]
-  //   })
-
   return (
     <Box
       sx={{
@@ -63,9 +53,9 @@ const Maps = () => {
 
             <Marker key={i} position={pos.geometry.coordinates} icon={icon}>
               <Popup>
-                Naziv objekta: {pos.properties.naziv_objekta} <br /> 
-                PS Broj: {pos.properties.ps_br} <br /> 
-                E Broj: {pos.properties.e_br} <br /> 
+                Naziv objekta: {pos.properties.naziv_objekta} <br />
+                PS Broj: {pos.properties.ps_br} <br />E Broj:{' '}
+                {pos.properties.e_br} <br />
                 Tip Objerkta: {pos.properties.tip_objekta} <br />
                 Lučka kapetanija: {pos.properties.lucka_kapetanija}
               </Popup>
