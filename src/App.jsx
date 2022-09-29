@@ -6,6 +6,7 @@ import Searchbox from './Searchbox';
 import List from './ListItems';
 import Header from './Header';
 import Routing from './Routing';
+import { LocationProvider } from './LocationContext';
 
 const darkTheme = createTheme({
   palette: {
@@ -17,9 +18,11 @@ const App = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Container>
-        <Routing /> 
-      </Container>
+      <LocationProvider>
+        <Container>
+          <Routing />
+        </Container>
+      </LocationProvider>
     </ThemeProvider>
   );
 };

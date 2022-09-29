@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import LocationContext from './LocationContext';
 import {
   Box,
   List,
@@ -6,19 +8,19 @@ import {
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
-import { useState } from 'react';
 import location from './assets/location.svg';
 
 
 const ListItems = () => {
 
-  const [items, setItems] = useState([])
+  const {markerPosition} = useContext(LocationContext)
+
   return (
     <Box>
       <List component={'nav'}>
-        {[1, 2, 3, 4, 5].map((item) => {
+        {markerPosition?.map((item, i) => {
           return (
-            <Box key={item}>
+            <Box key={i}>
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
@@ -28,7 +30,7 @@ const ListItems = () => {
                       style={{ width: 30, height: 30 }}
                     />
                   </ListItemIcon>
-                  <ListItemText primary='Location' />
+                  <ListItemText primary={item.properties.naziv_objekta} />
                 </ListItemButton>
               </ListItem>
             </Box>

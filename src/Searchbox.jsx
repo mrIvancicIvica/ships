@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import LocationContext from './LocationContext';
 import { Box, TextField, Button } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -7,13 +9,16 @@ const validationSchema = yup.object({
 });
 
 const Searchbox = () => {
+
+  const {searchLocation} = useContext(LocationContext)
   const formik = useFormik({
     initialValues: {
       searchItem: '',
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      searchLocation(values)
+      // console.log(values);
     },
   });
 
